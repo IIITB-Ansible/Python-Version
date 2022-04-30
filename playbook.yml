@@ -14,4 +14,4 @@
       shell: cat /etc/security/pwquality.conf
       register: ps
     - debug: 
-      var: ps
+        var: ps
