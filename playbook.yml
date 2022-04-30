@@ -3,4 +3,3 @@
   gather_facts: yes
   shell: "python --version"
   register: versions
-  - debug: var=versions
