@@ -1,5 +1,8 @@
-- name: PythonVersion
-  become: true
-  command: >
-    python --version
-  ignore_errors: no
+---
+# This playbook runs a basic python command.
+
+- hosts: 107Lab
+
+  tasks:
+  - name: Find Python Version
+    command: python --version
