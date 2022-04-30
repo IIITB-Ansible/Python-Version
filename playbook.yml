@@ -6,3 +6,6 @@
   tasks:
   - name: Find Python Version
     command: python --version
+    register: ps
+
+    - debug: var=ps.stdout_lines
