@@ -7,5 +7,5 @@
   - name: Find Python Version
     command: python --version
     register: ps
-
-    - debug: var=ps.stdout_lines
+  - local_action: command echo item
+    with_items: ps.stdout_lines
