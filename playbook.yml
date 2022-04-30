@@ -1,20 +1,9 @@
 - name: Execute
   hosts: all
   tasks:
-    - block:
-        - name: Execute against dev
-          shell: 'echo "dev"'
-          register: cmd_dev_out
-
-        -  debug: 
-             msg: "{{ cmd_dev_out }}"
-      when: "'172' in inventory_hostname"
-
-    - block:
-        - name: Execute against qa
-          shell: 'echo "qa"'
-          register: cmd_qa_out
-
-        -  debug: 
-             msg: "{{ cmd_qa_out }}"
-      when: "'11' in inventory_hostname"
+    - name: Execute against dev
+      shell: 'echo "dev"'
+      register: cmd_dev_out
+    - set_fact:
+      with_items: "{{ cmd_dev_out.stdout_lines }}"
+      no_log: true
