@@ -1,17 +1,11 @@
----
-- hosts: all
-  #become: true
-
+- name: Transfer and execute a script.
+  hosts: all
+  become_user: root
   vars:
      ansible_python_interpreter: /usr/bin/python3
      #  fix_mode: false # Set this to true in job template extra vars
-     # Keep this commented if you want to use your host/group/inventory variables
-     # This will have higher precedence that host/group/inventory variables but less than extra vars
-     # required_pass_minlen: 16
-
   tasks:
-    - name: Reading Configuration Settings
-      shell: cat /etc/security/pwquality.conf
-      register: ps
-    - debug: 
-        var: ps
+  - script: date.sh
+    register: results
+  - debug:
+      var: results.stdout
