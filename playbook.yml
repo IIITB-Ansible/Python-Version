@@ -6,6 +6,9 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - shell: python --version
+    - name: Find Python Version
+      shell: python --version
       register: ps
-    - debug: var=ps.stdout_lines
+    
+    - debug:
+        var=ps.stdout_lines
