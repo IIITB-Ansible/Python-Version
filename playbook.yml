@@ -1,5 +1,3 @@
 - name: PythonVersion
-- hosts: 107Lab
-  gather_facts: yes
   shell: "python --version"
   register: versions
