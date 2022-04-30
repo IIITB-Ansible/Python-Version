@@ -1,13 +1,20 @@
----
-# This playbook runs a basic python command.
-
-- hosts: all
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
+- name: Execute
+  hosts: all
   tasks:
-    - name: Find Python Version
-      shell: python --version
-      register: ps
-    
-    - debug:
-        var: ps.stdout_lines
+    - block:
+        - name: Execute against dev
+          shell: 'echo "dev"'
+          register: cmd_dev_out
+
+        -  debug: 
+             msg: "{{ cmd_dev_out }}"
+      when: "'172' in inventory_hostname"
+
+    - block:
+        - name: Execute against qa
+          shell: 'echo "qa"'
+          register: cmd_qa_out
+
+        -  debug: 
+             msg: "{{ cmd_qa_out }}"
+      when: "'11' in inventory_hostname"
