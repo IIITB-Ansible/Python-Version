@@ -2,11 +2,11 @@
 # This playbook runs a basic python command.
 
 - hosts: all
+  gather_facts: no
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
   - name: Find Python Version
     command: python --version
     register: ps
-  - debug:
-      var: ps.stdout_lines
+  - debug: var= ps.stdout_lines
