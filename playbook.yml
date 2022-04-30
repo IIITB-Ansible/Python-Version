@@ -1,3 +1,5 @@
 - name: PythonVersion
-  shell: "python --version"
-  register: versions
+  become: true
+  command: >
+    python --version
+  ignore_errors: no
