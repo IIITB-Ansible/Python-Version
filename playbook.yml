@@ -9,4 +9,4 @@
   - name: Find Python Version
     command: python --version
     register: ps
-  - debug: var= ps.stdout_lines
+  - debug: var=ps.stdout_lines
