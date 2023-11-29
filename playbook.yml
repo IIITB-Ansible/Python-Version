@@ -1,6 +1,3 @@
----
-- name: Collect javac Version
-  hosts: lab106_hosts
   gather_facts: yes
 
   tasks:
