@@ -1,6 +1,6 @@
 ---
 - name: Collect javac Version
-#  hosts: your_target_hosts
+  hosts: your_target_hosts
   gather_facts: yes
 
   tasks:
