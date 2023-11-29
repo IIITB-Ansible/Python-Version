@@ -1,3 +1,6 @@
+---
+- name: Collect javac Version
+#  hosts: your_target_hosts
   gather_facts: yes
 
   tasks:
@@ -9,4 +12,3 @@
     - name: Display javac Version
       debug:
         var: javac_version_result.stdout_lines
-
