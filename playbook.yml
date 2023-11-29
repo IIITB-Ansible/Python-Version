@@ -1,7 +1,14 @@
-
 ---
+- name: Collect javac Version
+  
+  gather_facts: yes
 
-- hosts: all
-  gather_facts: false
   tasks:
-    - ping:
+    - name: Collect javac Version
+      command: javac -version
+      register: javac_version_result
+      ignore_errors: yes
+
+    - name: Display javac Version
+      debug:
+        var: javac_version_result.stdout_lines
