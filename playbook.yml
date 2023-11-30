@@ -1,6 +1,6 @@
 ---
 - name: Ping-Pong Test
-#  hosts: your_target_hosts
+  hosts: lab106_hosts
   gather_facts: yes
 
   tasks:
