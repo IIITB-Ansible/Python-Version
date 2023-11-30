@@ -1,8 +1,4 @@
 ---
-- name: Ping-Pong Test
-  hosts: your_target_hosts
-  gather_facts: yes
-
   tasks:
     - name: Ping the hosts
       ping:
