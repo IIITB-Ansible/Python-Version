@@ -1,14 +1,8 @@
 ---
-- name: Collect javac Version
+- name: Ping-Pong Test
   hosts: your_target_hosts
   gather_facts: yes
 
   tasks:
-    - name: Collect javac Version
-      command: javac -version
-      register: javac_version_result
-      ignore_errors: yes
-
-    - name: Display javac Version
-      debug:
-        var: javac_version_result.stdout_lines
+    - name: Ping the hosts
+      ping:
